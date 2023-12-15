@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from banded import banded
 
 #h = 1e-18
 
@@ -34,7 +33,6 @@ B = np.diag(B2_diag, 1)+np.diag(B2_diag, -1)+np.diag(B1_diag)
 
 U = np.linalg.inv(A)@B
 
-
 #t_list = np.arange(0, h*itr, h)
 
 psi_list = np.array([])
@@ -43,7 +41,7 @@ psi_list = np.array([])
 plt.plot(np.real(psi))
 plt.show()
 
-itr = 2000
+itr = 200
 for i in range(itr):
 	psi = np.dot(U, psi)
 	psi[0] = psi[-1] = 0
