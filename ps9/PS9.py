@@ -1,14 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-#h = 1e-18
-
+h = 1e-18
 hbar = 1.0546e-34
 L = 1e-8
 M = 9.109e-31
 N = 1000
 a = L/N
-h = (a**2)/2
 
 a1 = 1 + h*1j*hbar/(2*M*(a**2))
 a2 = -h*hbar*1j/(4*M*(a**2))
@@ -41,9 +39,9 @@ psi_list = np.array([])
 plt.plot(np.real(psi))
 plt.show()
 
-itr = 200
+itr = 10000
 for i in range(itr):
-	psi = np.dot(U, psi)
+	psi = U@psi
 	psi[0] = psi[-1] = 0
 
 plt.plot(np.real(psi))
