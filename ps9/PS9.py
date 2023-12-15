@@ -11,7 +11,7 @@ N = 1000
 a = L/N
 h = (a**2)/2
 
-a1 = 1 + h**1j*hbar/(2*M*(a**2))
+a1 = 1 + h*1j*hbar/(2*M*(a**2))
 a2 = -h*hbar*1j/(4*M*(a**2))
 b1 = 1 - h*1j*hbar/(2*M*(a**2))
 b2 = h*hbar*1j/(4*M*(a**2))
@@ -34,8 +34,8 @@ B = np.diag(B2_diag, 1)+np.diag(B2_diag, -1)+np.diag(B1_diag)
 
 U = np.linalg.inv(A)@B
 
-itr = 4
-t_list = np.arange(0, h*itr, h)
+
+#t_list = np.arange(0, h*itr, h)
 
 psi_list = np.array([])
 
@@ -43,9 +43,9 @@ psi_list = np.array([])
 plt.plot(np.real(psi))
 plt.show()
 
-for i in range(len(t_list)):
-	t = t_list[i]
-	psi = U*psi
+itr = 2000
+for i in range(itr):
+	psi = np.dot(U, psi)
 	psi[0] = psi[-1] = 0
 
 plt.plot(np.real(psi))
