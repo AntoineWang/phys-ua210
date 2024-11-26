@@ -1,2 +1,2 @@
 # phys-ua210
-Computational Physics
+Computational Physics Problem Sets
